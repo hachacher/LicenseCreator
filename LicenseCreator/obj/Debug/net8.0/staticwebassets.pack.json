@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/obj/Debug/net8.0/scopedcss/projectbundle/LicenseCreator.bundle.scp.css",
+      "PackagePath": "staticwebassets/LicenseCreator.bundle.scp.css"
+    },
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/wwwroot/app.css",
+      "PackagePath": "staticwebassets/app.css"
+    },
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/wwwroot/bootstrap/bootstrap.min.css",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/wwwroot/bootstrap/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/bootstrap/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/wwwroot/favicon.png",
+      "PackagePath": "staticwebassets/favicon.png"
+    },
+    {
+      "Id": "/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/wwwroot/js/interop.js",
+      "PackagePath": "staticwebassets/js/interop.js"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.LicenseCreator.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.LicenseCreator.props",
+      "PackagePath": "build\\LicenseCreator.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.LicenseCreator.props",
+      "PackagePath": "buildMultiTargeting\\LicenseCreator.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.LicenseCreator.props",
+      "PackagePath": "buildTransitive\\LicenseCreator.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

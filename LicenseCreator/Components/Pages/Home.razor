@@ -1,0 +1,117 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using System.Text.Json
+@using System.Text
+@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+@inject LicenseCreator.Services.EncryptionService EncryptionService
+@using LicenseCreator.Models
+
+<PageTitle>License Creator</PageTitle>
+
+<h1>License Creator</h1>
+
+<div class="mb-3">
+    <label for="formFile" class="form-label">Upload License File</label>
+    <InputFile OnChange="HandleFileSelected" class="form-control" id="formFile" />
+</div>
+
+@if (license != null)
+{
+    <div class="mb-3">
+        <label for="expiryDate" class="form-label">Expiry Date</label>
+        <input type="date" id="expiryDate" class="form-control" @bind="license.ExpiryDate" />
+    </div>
+
+    <h3>Devices</h3>
+    <ul class="list-group mb-3">
+        @foreach (var device in license.Devices)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                @device.DeviceId
+                <button class="btn btn-danger btn-sm" @onclick="() => RemoveDevice(device)">Remove</button>
+            </li>
+        }
+    </ul>
+
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="New Device ID" @bind="newDeviceId" />
+        <button class="btn btn-primary" type="button" @onclick="AddDevice">Add Device</button>
+    </div>
+
+    <button class="btn btn-success" @onclick="ExportLicense">Export License</button>
+}
+else
+{
+    <button class="btn btn-primary" @onclick="CreateNewLicense">Create New License</button>
+}
+
+@code {
+    private License? license;
+    private string newDeviceId = "";
+
+    private async Task HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file != null)
+        {
+            try
+            {
+                using var stream = file.OpenReadStream(long.MaxValue);
+                using var reader = new StreamReader(stream);
+                var encryptedContent = await reader.ReadToEndAsync();
+                var decryptedJson = EncryptionService.Decrypt(encryptedContent);
+                license = JsonSerializer.Deserialize<License>(decryptedJson, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+            }
+            catch (Exception ex)
+            {
+                // Handle decryption or deserialization error
+                Console.WriteLine($"Error processing license file: {ex.Message}");
+                license = null;
+            }
+            finally
+            {
+                StateHasChanged();
+            }
+        }
+    }
+
+    private void CreateNewLicense()
+    {
+        license = new License
+        {
+            ExpiryDate = DateTime.Today
+        };
+    }
+
+    private void AddDevice()
+    {
+        if (!string.IsNullOrWhiteSpace(newDeviceId) && license != null)
+        {
+            license.Devices.Add(new Device { DeviceId = newDeviceId });
+            newDeviceId = string.Empty;
+        }
+    }
+
+    private void RemoveDevice(Device device)
+    {
+        if (license != null)
+        {
+            license.Devices.Remove(device);
+        }
+    }
+
+    private async Task ExportLicense()
+    {
+        if (license != null)
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(license, options);
+            var encryptedJson = EncryptionService.Encrypt(json);
+            var bytes = Encoding.UTF8.GetBytes(encryptedJson);
+            var fileName = "license.lic";
+            await JSRuntime.InvokeVoidAsync("saveAsFile", fileName, Convert.ToBase64String(bytes));
+        }
+    }
+}
+
