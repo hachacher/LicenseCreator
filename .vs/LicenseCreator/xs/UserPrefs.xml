@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{2375F0D9-3C1D-4C03-58EF-5495DBF19FE4}|https">
+  <MonoDevelop.Ide.ItemProperties.LicenseCreator PreferredExecutionTarget="/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="LicenseCreator/appsettings.json">
+    <Files>
+      <File FileName="LicenseCreator/Program.cs" Line="18" Column="57" />
+      <File FileName="LicenseCreator/appsettings.json" Line="14" Column="1" />
+      <File FileName="LicenseCreator/Properties/launchSettings.json" Line="9" Column="6" />
+      <File FileName="LicenseCreator/Components/Pages/Home.razor" Line="63" Column="54" />
+      <File FileName="LicenseCreator/Services/EncryptionService.cs" Line="13" Column="33" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LicenseCreator" expanded="True">
+            <Node name="LicenseCreator" expanded="True">
+              <Node name="Components" expanded="True">
+                <Node name="Pages" expanded="True" />
+              </Node>
+              <Node name="Properties" expanded="True" />
+              <Node name="Services" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

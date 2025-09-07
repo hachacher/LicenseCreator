@@ -27,3 +27,4 @@
 /Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/obj/Debug/net8.0/LicenseCreator.pdb
 /Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/obj/Debug/net8.0/LicenseCreator.genruntimeconfig.cache
 /Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/obj/Debug/net8.0/ref/LicenseCreator.dll
+/Users/ralphhachache/Desktop/LicenseCreator/LicenseCreator/obj/Debug/net8.0/LicenseCreator.sourcelink.json
